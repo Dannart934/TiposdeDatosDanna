@@ -1,36 +1,30 @@
-//
-interface Alumno2{
+interface Direccion{
+    calle:string;
+    pais:string;
+    estado:string
+}
+
+interface DatosAlumno{
     nombre:string;
     edad:number;
-    direccion:()=>void;
-    calle:boolean=false;
-    pais:string;
-    estado:string;
-    numero:number;
+    direccion:Direccion;
+    mostrarDireccion:()=>string;
 }
 
-function alumno1003(alumno:Alumno2, mostrarDireccion:boolean):void{
-    alumno.nombre='Danna';
-    alumno.edad=20;
-    alumno.direccion
-}
-
-
-const Alumnonuevo:Alumno2={
-    nombre:'Mario',
-    edad:23,
+const AlumnoUtl:DatosAlumno={
+    nombre:'Danna',
+    edad:20,
     direccion:{
-        calle:'brisas de san nicolas',
-        pais:'mexico',
-        estado:'leon',
-        numero:103,
-    }
+        calle:'SanNicolas',
+        pais:'Mexico',
+        estado:'Leon'
+    },
 
-    
-    mostrarDireccion(direccion:Alumno2,calle,pais,estado,numero):void{
-
-        return this.nombre ', '+this.direccion.estado+', '+this.direccion.pais
-
+    mostrarDireccion(){
+        return this.nombre+', '+this.direccion.estado+', '+this.direccion.pais;
     }
 }
+
+const direccion=AlumnoUtl.mostrarDireccion();
+console.log(direccion)
 
